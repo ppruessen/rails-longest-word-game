@@ -1,0 +1,18 @@
+<h1> <%= params[:word] %></h1>
+<h3> <%= @word["found"] %> </h3>
+<h3> <%= @wletters %> </h3>
+<h3> <%= @is_in_grid %> </h3>
+
+<h1>Result</h1>
+
+<h3>
+<% if @word["found"] && @is_in_grid %>
+<%= "Its a word" %>
+<% elsif @word["found"] && !@is_in_grid%>
+<%= "Sorry but #{params[:word]} is not in the grid" %>
+<% else%>
+<%= "Sorry but #{params[:word]} does not seem to be an english word" %>
+<% end %>
+
+</h3>
+<%= link_to "back", "new" %>

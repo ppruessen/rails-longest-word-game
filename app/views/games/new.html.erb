@@ -1,0 +1,19 @@
+
+
+<div class="container align-items-center">
+  <div class="d-flex flex-row justify-content-center">
+    <% @letters.each do |char| %>
+      <div class="col-1 text-center letter">
+        <%= char.first %>
+      </div>
+    <% end %>
+  </div>
+  <p>What is the longest word you can find?</p>
+  <form action="/score" method="post" data-turbo="false">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <input type="text" name="word" placeholder="Your word">
+    <input id="letters" name="letters" type="hidden" value="<%= @letters_string %>"/>
+    <input type="submit" value="Play">
+  </form>
+
+</div>
